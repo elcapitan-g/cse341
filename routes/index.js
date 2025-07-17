@@ -1,6 +1,9 @@
 const router = require('express').Router();
 
+router.use('/', require('./swagger'));
+
 router.get('/', (req, res) => {
+    //#sagger.tage['Hello World']
   res.send('Hello World');
 });
 
