@@ -45,7 +45,11 @@ const updateUser = async (req, res) => {
         Name: req.body.name,
         ipaddress: req.body.ipaddress
     };
-    const response = await mongodb.getDatabase().db().collection('users').replaceOne({_id: userId});
+ const response = await mongodb.getDatabase().db().collection('users').replaceOne(
+    { _id: userId },
+    user // ← i added dis one
+
+  );
     if (response.modifiedCount > 0) {
         res.status(200).send();
     } else {
