@@ -2,15 +2,25 @@
   "swagger": "2.0",
   "info": {
     "title": "Users API",
-    "description": "API for managing users",
+    "description": "Users API",
     "version": "1.0.0"
   },
-  "host": "cse341-hbln.onrender.com", 
+  "host": "cse341-hbln.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
   ],
   "paths": {
+    "/": {
+      "get": {
+        "description": "Hello, World!",
+        "responses": {
+          "200": {
+            "description": "Hello, World!"
+          }
+        }
+      }
+    },
     "/users/": {
       "get": {
         "tags": [
@@ -40,7 +50,22 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/User"
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "User's full name"
+                },
+                "email": {
+                  "type": "string",
+                  "description": "User's email address"
+                },
+                "password": {
+                  "type": "string",
+                  "description": "User's password"
+                }
+              },
+              "required": ["name", "email", "password"]
             }
           }
         ],
@@ -97,7 +122,22 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/User"
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "User's full name"
+                },
+                "email": {
+                  "type": "string",
+                  "description": "User's email address"
+                },
+                "password": {
+                  "type": "string",
+                  "description": "User's password"
+                }
+              },
+              "required": ["name", "email", "password"]
             }
           }
         ],
@@ -130,30 +170,6 @@
           "404": {
             "description": "User not found"
           }
-        }
-      }
-    }
-  },
-  "definitions": {
-    "User": {
-      "type": "object",
-      "required": [
-        "name",
-        "email",
-        "password"
-      ],
-      "properties": {
-        "name": {
-          "type": "string",
-          "description": "User's full name"
-        },
-        "email": {
-          "type": "string",
-          "description": "User's email address"
-        },
-        "password": {
-          "type": "string",
-          "description": "User's password"
         }
       }
     }
