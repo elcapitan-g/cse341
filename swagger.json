@@ -60,12 +60,12 @@
                   "type": "string",
                   "description": "User's email address"
                 },
-                "password": {
+                "ipaddress": {
                   "type": "string",
-                  "description": "User's password"
+                  "description": "User's ipaddress"
                 }
               },
-              "required": ["name", "email", "password"]
+              "required": ["name", "email", "ipaddress"]
             }
           }
         ],
@@ -132,12 +132,12 @@
                   "type": "string",
                   "description": "User's email address"
                 },
-                "password": {
+                "ipaddress": {
                   "type": "string",
-                  "description": "User's password"
+                  "description": "User's ipaddress"
                 }
               },
-              "required": ["name", "email", "password"]
+              "required": ["name", "email", "ipaddress"]
             }
           }
         ],
