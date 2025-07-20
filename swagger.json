@@ -1,54 +1,57 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Users Api",
-    "decription": "Users Api",
-    "version": "1.0.0",
-    "description": ""
+    "title": "Users API",
+    "description": "API for managing users",
+    "version": "1.0.0"
   },
-  "host": "cse341-hbln.onrender.com/",
+  "host": "cse341-hbln.onrender.com", 
   "basePath": "/",
   "schemes": [
     "https"
   ],
   "paths": {
-    "/": {
-      "get": {
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api-docs": {
-      "get": {
-        "description": "",
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
-      }
-    },
     "/users/": {
       "get": {
         "tags": [
           "Users"
         ],
-        "description": "",
+        "description": "Get all users",
         "produces": [
-          " application/json"
+          "application/json"
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "List of all users"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "description": "Create a new user",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "User created successfully"
           }
         }
       }
     },
-   "/users/{id}": {
+    "/users/{id}": {
       "get": {
         "tags": [
           "Users"
